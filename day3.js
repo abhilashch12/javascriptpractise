@@ -33,3 +33,4 @@ let updatedStudents = studentDetails.map(students => ({
     grade: gradeChecker(students.marks)
 }));
 console.log(updatedStudents);
+export {updatedStudents};
