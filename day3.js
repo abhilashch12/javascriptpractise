@@ -14,6 +14,8 @@ let totalMarks = studentDetails.reduce((total,student)=>{
                                         return total+student.marks;
 },0);
 console.log(totalMarks);
+const average = (totalMarks / studentDetails.length).toFixed(1);
+console.log("Average:", average); 
 let firstStudent = studentDetails.find(first => first.marks>80);
 console.log(firstStudent);
 let noStudent = studentDetails.find(noone=>noone.marks>95);
