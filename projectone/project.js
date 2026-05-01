@@ -24,23 +24,66 @@ let questions = [{question: "What is the capital of France?",
                     answer:"7"},
  ]
  let quizq=document.querySelector("#questions");
- let firstq=questions[0];
+ let index=0;
+ let score= 0;
+ let nextBtn = document.createElement("button");
+ nextBtn.textContent="next";
+ let showresult=document.createElement("button");
+ showresult.textContent="results";
+ let resultpage=document.createElement("h3");
+ let playagain = document.createElement("button");
+ playagain.textContent="play again";
+ function repeat()
+ {
+ quizq.innerHTML="";
+ let allQuestions=questions[index];
  let h2 = document.createElement("h2");
- h2.textContent=firstq.question;
+ h2.textContent=allQuestions.question;
  quizq.appendChild(h2);
- firstq.options.forEach(option=>{
+ let count = 0;
+ allQuestions.options.forEach(option=>{
        let p = document.createElement("p");
        p.textContent=option;
        p.addEventListener("click",()=>{
-        if(p.textContent===firstq.answer){
+        count++;
+        if(count==1){
+        if(p.textContent===allQuestions.answer){
             p.classList.add("backgroundcorrect");
+            score++;
         }
         else{
            p.classList.add("backgroundwrong"); 
         }
-        console.log("clicked");
-       })
-       quizq.appendChild(p);
- })
+      }});
+      quizq.appendChild(p);
+    });
+    let questionNum = document.createElement("p");
+    questionNum.textContent=`question ${index+1} of ${questions.length}`;
+    quizq.appendChild(questionNum);
 
- 
+      if(index==questions.length-1){
+        quizq.appendChild(showresult);
+      }
+      else{
+        quizq.appendChild(nextBtn);
+      }
+    }     
+ nextBtn.addEventListener("click",()=>{
+  index++;
+  repeat();
+ });
+showresult.addEventListener("click",()=>{
+          quizq.innerHTML= " ";
+          resultpage.textContent=`you have scored:${score} with the percentage of ${(score/questions.length)*100}`;
+          quizq.appendChild(resultpage);
+          quizq.appendChild(playagain);
+      })
+
+ playagain.addEventListener("click",()=>{
+    index=0;
+    score=0;
+    repeat();
+    
+  });
+
+  repeat();
