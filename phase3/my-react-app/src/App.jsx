@@ -16,7 +16,7 @@ function App(){
   <Greeting name="Rajesh" />
   {studentDetails.map((students) => {
     return (
-      <div>
+      <div key={students.name}>
         <StudentCard name={students.name} marks={students.marks} passing={students.marks >= 60 }/>
       </div>
     );

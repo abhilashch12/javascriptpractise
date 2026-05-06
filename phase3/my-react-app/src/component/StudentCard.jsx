@@ -1,13 +1,13 @@
-function StudentCard(props){
+function StudentCard({name, marks, passing}){
   return (
     <div>
-    <h3>{props.name}</h3>
-    <h3>{props.marks}</h3>
+    <h3>{name}</h3>
+    <h3>{marks}</h3>
     <p
       style={{
-        color:props.passing?"green":"red",
+        color:passing?"green":"red",
       }}>
-     { props.passing?"pass":"fail"}
+     { passing?"pass":"fail"}
     </p>
     </div>
   );
