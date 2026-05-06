@@ -4,13 +4,14 @@ let input = document.querySelector("#input");
 let btn = document.querySelector("#btn");
 let cities= JSON.parse(localStorage.getItem("cities"))||[];
 let historyDiv = document.querySelector("#history");
+const apiKey = "6a0d5b6497a4a2b8177bb26cde3d571b";
 async function getWeather(city){
     try{
         main.innerHTML= "";
         let loading = document.createElement("p");
         loading.textContent='loading';
         main.appendChild(loading);
-        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6a0d5b6497a4a2b8177bb26cde3d571b&units=metric`);
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
         if(!response.ok){
            main.removeChild(loading);
            let errorMsg = document.createElement("p");
