@@ -5,6 +5,8 @@ import LivePreview from "./component/LivePreview";
 import ToggleCard from "./component/ToggleCard";
 import TodoApp from "./component/TodoApp";
 import Practise from "./component/Practise";
+import UserCard from "./component/UserCard";
+import Timer from "./component/Timer";
 let studentDetails = [{name:"Abhi",marks:35},
                       {name:"ravi",marks:50},
                       {name:"raju",marks:90},
@@ -30,6 +32,8 @@ function App(){
   <ToggleCard />
   <TodoApp/>
   <Practise />
+  <UserCard />
+  <Timer />
   </div>
   );
 }

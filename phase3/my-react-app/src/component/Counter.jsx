@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState,useEffect} from "react";
 function Counter(){
    const[count,setCount]=useState(0);
    function increment(){
@@ -12,6 +12,9 @@ function Counter(){
    function reset(){
     setCount(0);
    }
+   useEffect(()=>{
+    document.title=`${count}`;
+   },[count])
    return(
   <div>
   <button onClick={increment}>

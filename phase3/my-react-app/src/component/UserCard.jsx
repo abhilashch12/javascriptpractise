@@ -1,0 +1,45 @@
+import {useState,useEffect} from "react";
+function UserCard(){
+
+
+ const [user,setUser]=useState(null);
+ const [loading,setLoading]=useState(true);
+ const [error,setError]=useState(null);
+ const [userid,setUserid]= useState(1);
+  useEffect(()=>{
+        fetch(`https://jsonplaceholder.typicode.com/users/${userid}`)
+        .then((response)=>{
+            return response.json();
+        })
+        .then((data)=>{
+            setUser(data);
+            setLoading(false);
+        })
+        .catch(()=>{
+            setError("failed to fetch user");
+            setLoading(false);
+        });
+  },[userid]);
+  if(loading){
+    return <h1>loading...</h1>
+  }
+  if(error){
+    return <h1>{error}</h1>
+  }
+    return(
+ <div>
+      <button onClick={()=>setUserid(1)}>1</button>
+      <button onClick={()=>setUserid(2)}>2</button>
+      <button onClick={()=>setUserid(3)}>3</button>
+      <button onClick={()=>setUserid(4)}>4</button>
+      <button onClick={()=>setUserid(5)}>5</button>
+
+      <h1>{user.name}</h1>
+
+      <h2>{user.email}</h2>
+
+      <h3>{user.address.city}</h3>
+    </div>
+    );
+}
+export default UserCard;
