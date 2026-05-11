@@ -1,6 +1,10 @@
 import Greeting from "./component/Greeting";
 import StudentCard from "./component/StudentCard";
-
+import Counter from "./component/Counter";
+import LivePreview from "./component/LivePreview";
+import ToggleCard from "./component/ToggleCard";
+import TodoApp from "./component/TodoApp";
+import Practise from "./component/Practise";
 let studentDetails = [{name:"Abhi",marks:35},
                       {name:"ravi",marks:50},
                       {name:"raju",marks:90},
@@ -21,6 +25,11 @@ function App(){
       </div>
     );
   })}
+  <Counter />
+  <LivePreview />
+  <ToggleCard />
+  <TodoApp/>
+  <Practise />
   </div>
   );
 }
