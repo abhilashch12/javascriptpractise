@@ -1,4 +1,6 @@
 import {useState,useEffect} from "react";
+import CounterDisplay from "./CounterDisplay";
+import CounterControls from "./CounterControls";
 function Counter(){
    const[count,setCount]=useState(0);
    function increment(){
@@ -17,16 +19,8 @@ function Counter(){
    },[count])
    return(
   <div>
-  <button onClick={increment}>
-    increment
-  </button>
-  <button onClick={decrement}>
-    decrement
-  </button>
-  <button onClick={reset}>
-  reset
-  </button>
-  count:{count}
+  <CounterDisplay  count={count}/>
+  <CounterControls   increment={increment} decrement={decrement} reset={reset}/>
   </div>
    );
 }

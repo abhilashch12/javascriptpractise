@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-
+import TodoInput from "./TodoInput";
+import TodoList from "./TodoList";
+import TodoStats from "./TodoStats";
 function TodoApp() {
 
   const [text, setText] = useState("");
-
+  const [filter,setFilter]=useState("all");
   const [todos, setTodos] = useState(() => {
 
     const savedTodos = localStorage.getItem("todos");
@@ -75,55 +77,34 @@ function TodoApp() {
 
   }).length;
 
+   let filteredTodos = todos;
+
+  if (filter === "active") {
+
+    filteredTodos = todos.filter((todo) => {
+
+      return todo.completed === false;
+
+    });
+
+  }
+
+  if (filter === "completed") {
+
+    filteredTodos = todos.filter((todo) => {
+
+      return todo.completed === true;
+
+    });
+
+  }
+
+
   return (
     <div>
-
-      <input
-        placeholder="type todo"
-        type="text"
-        value={text}
-        onChange={(e) => {
-          setText(e.target.value);
-        }}
-      />
-
-      <button onClick={addTodo}>
-        Add
-      </button>
-
-      <h3>{remainingTasks} tasks remaining</h3>
-
-      {todos.map((todo, index) => {
-
-        return (
-          <div key={index}>
-
-            <p
-              onClick={() => {
-                strike(index);
-              }}
-              style={{
-                textDecoration:
-                  todo.completed
-                    ? "line-through"
-                    : "none"
-              }}
-            >
-              {todo.text}
-            </p>
-
-            <button
-              onClick={() => {
-                deleteTodo(index);
-              }}
-            >
-              delete
-            </button>
-
-          </div>
-        );
-      })}
-
+      <TodoInput  text={text} setText={setText} addTodo={addTodo} setFilter={setFilter}/>
+      <TodoList   todos={filteredTodos} strike={strike} deleteTodo={deleteTodo} />
+      <TodoStats  remainingTasks ={remainingTasks}/>
     </div>
   );
 }
