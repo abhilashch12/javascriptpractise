@@ -2,28 +2,12 @@ import { useState, useEffect } from "react";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import TodoStats from "./TodoStats";
+import useLocalStorage from "../hooks/useLocalStorage";
 function TodoApp() {
 
   const [text, setText] = useState("");
   const [filter,setFilter]=useState("all");
-  const [todos, setTodos] = useState(() => {
-
-    const savedTodos = localStorage.getItem("todos");
-
-    return savedTodos
-      ? JSON.parse(savedTodos)
-      : [];
-
-  });
-
-  useEffect(() => {
-
-    localStorage.setItem(
-      "todos",
-      JSON.stringify(todos)
-    );
-
-  }, [todos]);
+  const [todos, setTodos]   = useLocalStorage("todos", []);
 
   function addTodo() {
 
