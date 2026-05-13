@@ -1,9 +1,21 @@
-function TodoStats(props){
+import { useTodos } from "../hooks/useTodos";
 
-    return(
-        <div>
-          <h3>{props.remainingTasks} tasks remaining</h3>
-        </div>
-    );
+function TodoStats() {
+
+  const { remainingTasks } = useTodos();
+
+  return (
+
+    <div>
+
+      <h3>
+        {remainingTasks} tasks remaining
+      </h3>
+
+    </div>
+
+  );
+
 }
+
 export default TodoStats;
