@@ -1,4 +1,11 @@
-function TodoList(props) {
+import { useTodos } from "../hooks/useTodos";
+function TodoList() {
+const {
+    filteredTodos,
+    strike,
+    deleteTodo
+  } = useTodos();
+
 
   function TodoItem(itemProps) {
 
@@ -28,7 +35,7 @@ function TodoList(props) {
   return (
     <div>
 
-      {props.todos.map((todo, index) => {
+      {filteredTodos.map((todo, index) => {
 
         return (
           <div key={index}>
@@ -36,10 +43,10 @@ function TodoList(props) {
             <TodoItem
               todo={todo}
               onToggle={() => {
-                props.strike(index);
+                strike(index);
               }}
               onDelete={() => {
-                props.deleteTodo(index);
+              deleteTodo(index);
               }}
             />
 

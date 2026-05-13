@@ -1,29 +1,46 @@
-function TodoInput(props){
+import { useTodos } from "../hooks/useTodos";
 
-    return(
-        <div>
-         <input
-        placeholder="type todo"
+function TodoInput() {
+
+  const {
+    text,
+    setText,
+    addTodo,
+    setFilter
+  } = useTodos();
+
+  return (
+
+    <div>
+
+      <input
         type="text"
-        value={props.text}
+        value={text}
         onChange={(e) => {
-          props.setText(e.target.value);
+          setText(e.target.value);
         }}
       />
 
-      <button onClick={props.addTodo}>
-        Add
+      <button onClick={addTodo}>
+        Add Todo
       </button>
-      <button onClick={()=>{
-         props.setFilter("all");
-      }}>show all</button>
-      <button onClick={()=>{
-         props.setFilter("active");
-      }}>show active</button>
-      <button onClick={()=>{
-         props.setFilter("completed");
-      }}>show completed</button>
-      </div>
-    );
+
+      <select
+        onChange={(e) => {
+          setFilter(e.target.value);
+        }}
+      >
+
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="completed">Completed</option>
+
+      </select>
+
+    </div>
+
+  );
+
 }
+
 export default TodoInput;

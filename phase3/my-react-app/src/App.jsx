@@ -7,6 +7,9 @@ import TodoApp from "./component/TodoApp";
 import Practise from "./component/Practise";
 import UserCard from "./component/UserCard";
 import Timer from "./component/Timer";
+import NavBar from "./component/NavBar";
+import { ThemeProvider } from "./context/ThemeContext";
+import { TodoProvider } from "./context/TodoContext";
 let studentDetails = [{name:"Abhi",marks:35},
                       {name:"ravi",marks:50},
                       {name:"raju",marks:90},
@@ -15,6 +18,8 @@ let studentDetails = [{name:"Abhi",marks:35},
                       {name:"raja",marks:83}];
 function App(){
   return(
+  <ThemeProvider>
+  <TodoProvider>
   <div>
   <h1>hello react</h1>
   <Greeting name="Abhilash" />
@@ -30,11 +35,14 @@ function App(){
   <Counter />
   <LivePreview />
   <ToggleCard />
-  <TodoApp/>
   <Practise />
   <UserCard />
   <Timer />
+  <NavBar />
+  <TodoApp />
   </div>
+  </TodoProvider>
+  </ThemeProvider>
   );
 }
 
