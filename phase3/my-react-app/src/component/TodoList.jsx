@@ -1,36 +1,22 @@
+import { useCallback } from "react";
 import { useTodos } from "../hooks/useTodos";
+import TodoItem from "./TodoItem";
+
 function TodoList() {
-const {
+
+  const {
     filteredTodos,
     strike,
     deleteTodo
   } = useTodos();
 
+  const handleToggle = useCallback((index) => {
+    strike(index);
+  }, [strike]);
 
-  function TodoItem(itemProps) {
-
-    return (
-      <div>
-
-        <p
-          onClick={itemProps.onToggle}
-          style={{
-            textDecoration:
-              itemProps.todo.completed
-                ? "line-through"
-                : "none"
-          }}
-        >
-          {itemProps.todo.text}
-        </p>
-
-        <button onClick={itemProps.onDelete}>
-          delete
-        </button>
-
-      </div>
-    );
-  }
+  const handleDelete = useCallback((index) => {
+    deleteTodo(index);
+  }, [deleteTodo]);
 
   return (
     <div>
@@ -42,12 +28,8 @@ const {
 
             <TodoItem
               todo={todo}
-              onToggle={() => {
-                strike(index);
-              }}
-              onDelete={() => {
-              deleteTodo(index);
-              }}
+              onToggle={() => handleToggle(index)}
+              onDelete={() => handleDelete(index)}
             />
 
           </div>

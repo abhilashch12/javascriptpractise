@@ -1,4 +1,4 @@
-import {createContext,useState,useEffect,useContext} from "react";
+import {createContext,useState,useEffect,useContext,useMemo} from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 export const TodoContext = createContext();
 export function TodoProvider({children}){
@@ -57,14 +57,16 @@ const [text, setText] = useState("");
     return todo.completed === false;
 
   }).length;
-
-   let filteredTodos = todos;
-
+  
+   const filteredTodos = useMemo(()=>
+    {
+ console.log("filtered");
   if (filter === "active") {
 
-    filteredTodos = todos.filter((todo) => {
+    return todos.filter((todo) => {
 
       return todo.completed === false;
+     
 
     });
 
@@ -72,12 +74,15 @@ const [text, setText] = useState("");
 
   if (filter === "completed") {
 
-    filteredTodos = todos.filter((todo) => {
+    return todos.filter((todo) => {
 
       return todo.completed === true;
+      
 
     });
-}
+  }
+    return todos;
+  },[todos,filter]);
  return(
         <TodoContext.Provider value={{text, setText,filter,setFilter,todos, setTodos,addTodo,deleteTodo
                                      ,strike, remainingTasks, filteredTodos}}

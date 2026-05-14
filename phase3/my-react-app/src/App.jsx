@@ -10,6 +10,9 @@ import Timer from "./component/Timer";
 import NavBar from "./component/NavBar";
 import { ThemeProvider } from "./context/ThemeContext";
 import { TodoProvider } from "./context/TodoContext";
+import Focus from "./component/Focus";
+import Stopwatch from "./component/Stopwatch";
+import Counteruseref from "./component/Counteruseref";
 let studentDetails = [{name:"Abhi",marks:35},
                       {name:"ravi",marks:50},
                       {name:"raju",marks:90},
@@ -40,6 +43,9 @@ function App(){
   <Timer />
   <NavBar />
   <TodoApp />
+  <Focus />
+  <Stopwatch />
+  <Counteruseref />
   </div>
   </TodoProvider>
   </ThemeProvider>
