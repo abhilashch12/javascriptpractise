@@ -13,6 +13,8 @@ import { TodoProvider } from "./context/TodoContext";
 import Focus from "./component/Focus";
 import Stopwatch from "./component/Stopwatch";
 import Counteruseref from "./component/Counteruseref";
+import Loginform from "./component/Loginform";
+import Registerationform from "./component/Registerationform";
 let studentDetails = [{name:"Abhi",marks:35},
                       {name:"ravi",marks:50},
                       {name:"raju",marks:90},
@@ -46,6 +48,8 @@ function App(){
   <Focus />
   <Stopwatch />
   <Counteruseref />
+  <Loginform />
+  <Registerationform />
   </div>
   </TodoProvider>
   </ThemeProvider>
