@@ -15,6 +15,7 @@ import Stopwatch from "./component/Stopwatch";
 import Counteruseref from "./component/Counteruseref";
 import Loginform from "./component/Loginform";
 import Registerationform from "./component/Registerationform";
+import PostList from "./component/PostList";
 let studentDetails = [{name:"Abhi",marks:35},
                       {name:"ravi",marks:50},
                       {name:"raju",marks:90},
@@ -37,6 +38,7 @@ function App(){
       </div>
     );
   })}
+  <PostList />
   <Counter />
   <LivePreview />
   <ToggleCard />

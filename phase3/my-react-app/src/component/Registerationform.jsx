@@ -162,7 +162,7 @@ function Registerationform(){
  
     return(
       <div>
-        <form >
+        <form onSubmit={display} >
         <label>Name  :</label>
         <input name="username" type="text" placeholder="name" value={form.username} onChange={handleChange}/>
         <p style={{color:"red"}}>{err.usernameerr}</p>
@@ -172,7 +172,7 @@ function Registerationform(){
         <p style={{color:"red"}}>{err.emailerr}</p>
         <br/>
         <label>Password:</label>
-        <input name="password" type="text" placeholder="password" value={form.password} onChange={handleChange} />
+        <input name="password" type="password" placeholder="password" value={form.password} onChange={handleChange} />
         <p style={{color:"red"}}>{err.passworderr}</p>
         <br/>
         <label>select role:</label>
@@ -187,7 +187,7 @@ function Registerationform(){
         <label>read all the details correctly and recheck before submitting</label>
         <p style={{color:"red"}}>{err.termserr}</p>
         <br />
-        <button type="submit" onClick={display}>submit</button>
+        <button type="submit" >submit</button>
         
       </form>
       </div>
