@@ -1,6 +1,7 @@
+
 function App(){
-
-
+const message = import.meta.env.VITE_TEST_MESSAGE;
+console.log(message);
   return(
     <div>
     <nav className="flex justify-between items-center p-4 bg-red-50 border-solid border-black">
@@ -56,6 +57,7 @@ function App(){
        <div className="h-24 bg-purple-200 rounded flex items-center justify-center">box6</div>
 
     </div>
+    <p>{message}</p>
     </div>
   )
 }
