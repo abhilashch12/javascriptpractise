@@ -34,6 +34,28 @@ function App(){
       <div className="h-24 w-24 bg-blue-200">box5</div>
       <div className="h-24 w-24 bg-blue-200">box6</div>
     </div>
+    <div className="flex gap-4">
+        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Primary</button>
+        <button className="bg-gray-200 text-black px-4 py-2 rounded hover:bg-gray-300">Secondary</button>
+        <button className=" bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Danger</button>
+    </div>
+    <div>
+      <div className="relative inline-block">
+      <div className="flex items-center justify-center w-20 h-20 rounded-full bg-yellow-200">image</div>
+      <p className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-green-500"></p>
+      </div>
+      <p>Abhilash</p>
+      <p>title</p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+       <div className="h-24 bg-purple-200 rounded flex items-center justify-center">box1</div>
+       <div className="h-24 bg-purple-200 rounded flex items-center justify-center">box2</div>
+       <div className="h-24 bg-purple-200 rounded flex items-center justify-center">box3</div>
+       <div className="h-24 bg-purple-200 rounded flex items-center justify-center">box4</div>
+       <div className="h-24 bg-purple-200 rounded flex items-center justify-center">box5</div>
+       <div className="h-24 bg-purple-200 rounded flex items-center justify-center">box6</div>
+
+    </div>
     </div>
   )
 }
